@@ -62,18 +62,6 @@
          .content-text {
              @apply text-gray-200 text-sm md:text-base;
          }
-         /* Styling for image within grid item */
-        .grid-item img {
-             @apply rounded-lg object-cover w-full h-full; /* Make image fill and cover */
-        }
-         /* Grid item specifically for images, removing padding */
-         .grid-item-image {
-            @apply bg-zinc-900/70 backdrop-blur-sm border border-zinc-800 rounded-xl flex flex-col overflow-hidden p-0; /* Remove padding, hide overflow */
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-         }
-         .grid-item-image:hover {
-             @apply bg-zinc-800/80 border-zinc-700;
-         }
     </style>
 </head>
 <body class="bg-black text-white">
@@ -99,14 +87,13 @@
         </header>
 
         <!-- Bento Grid Layout -->
-        <!-- Updated grid structure for lg screens to accommodate images -->
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
 
-            <!-- Block 1: Basic Info (Row 1) -->
+            <!-- Block 1: Basic Info -->
             <motion.section
                 class="grid-item md:col-span-2 lg:col-span-2"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
-                <h2 class="text-large-cn mb-4"><i class="fas fa-building highlight-text mr-2"></i>公司概况 <span class="text-label-en">Company Overview</span></h2>
+                <h2 class="text-large-cn mb-4"><i class="fas fa-building highlight-text mr-2"></i>公司概况 <span class="text-label-en !inline">Company Overview</span></h2>
                 <div class="content-line">
                     <span class="icon-wrapper"><i class="far fa-calendar-alt"></i></span>
                     <span class="content-text">
@@ -144,7 +131,7 @@
                  </div>
             </motion.section>
 
-            <!-- Block 2: Registered Capital (Row 1) -->
+            <!-- Block 2: Registered Capital -->
             <motion.section
                 class="grid-item flex flex-col justify-center items-center text-center highlight-bg-gradient"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
@@ -153,7 +140,7 @@
                 <p class="text-medium-cn">注册资本 <span class="text-label-en">Registered Capital (RMB)</span></p>
             </motion.section>
 
-            <!-- Block 3: Address (Row 1) -->
+            <!-- Block 3: Address -->
              <motion.section
                 class="grid-item"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
@@ -164,7 +151,7 @@
                  <p class="text-xs text-gray-400 mt-2">(2021年地址变更后 | Address changed in 2021)</p>
              </motion.section>
 
-            <!-- Block 4: Business Scope (Row 2) -->
+            <!-- Block 4: Business Scope -->
             <motion.section
                 class="grid-item md:col-span-2 lg:col-span-2"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
@@ -178,28 +165,10 @@
                  <p class="text-xs text-gray-400 mt-2">(2021年范围调整 | Scope adjusted in 2021)</p>
             </motion.section>
 
-            <!-- NEW: Image Block 1: Workshop Press (Row 2) -->
-            <motion.section
-                class="grid-item-image"
-                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.25 }}>
-                <img src="images/workshop_press.jpg" alt="质尚工具生产车间 - 压机设备">
-                 <!-- Optional caption inside -->
-                <!-- <div class="absolute bottom-0 left-0 bg-black/50 p-2 text-xs">生产车间 / Workshop</div> -->
-            </motion.section>
-
-            <!-- NEW: Image Block 2: Workshop Furnace (Row 2) -->
-            <motion.section
-                class="grid-item-image"
-                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.35 }}>
-                <img src="images/workshop_furnace.jpg" alt="质尚工具生产车间 - 烧结设备">
-                 <!-- Optional caption inside -->
-                <!-- <div class="absolute bottom-0 left-0 bg-black/50 p-2 text-xs">烧结工艺 / Sintering Process</div> -->
-            </motion.section>
-
-            <!-- Block 5: Core Products (Row 3) -->
+            <!-- Block 5: Core Products -->
             <motion.section
                 class="grid-item md:col-span-2 lg:col-span-2"
-                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
+                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.25 }}>
                  <h2 class="text-large-cn mb-4"><i class="fas fa-tools highlight-text mr-2"></i>核心产品 <span class="text-label-en">Core Products</span></h2>
                  <ul class="list-none space-y-2">
                      <li class="content-line"><span class="icon-wrapper"><i class="fas fa-gem"></i></span> <span class="content-text"><span class="font-semibold">金刚石工具</span> (如金刚石磨盘, 薄壁水钻) <span class="text-label-en">Diamond Tools (e.g., Grinding Discs, Core Drills)</span></span></li>
@@ -209,18 +178,9 @@
                  </ul>
              </motion.section>
 
-            <!-- NEW: Image Block 3: Product Display (Row 3) -->
+             <!-- Block 6: Production Project -->
             <motion.section
-                class="grid-item-image md:col-span-2 lg:col-span-2" /* Spans 2 cols on md+ */
-                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-                <img src="images/product_display.jpg" alt="质尚工具产品展示">
-                <!-- Optional caption inside -->
-                <!-- <div class="absolute bottom-0 left-0 bg-black/50 p-2 text-xs">产品展示 / Product Showcase</div> -->
-            </motion.section>
-
-             <!-- Block 6: Production Project (Row 4) -->
-            <motion.section
-                class="grid-item md:col-span-2 lg:col-span-3 highlight-bg-gradient" /* Spans 3 cols on lg */
+                class="grid-item md:col-span-2 lg:col-span-3 highlight-bg-gradient"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
                  <h2 class="text-large-cn mb-4"><i class="fas fa-industry highlight-text mr-2"></i>重点生产项目 <span class="text-label-en">Key Production Project</span></h2>
                  <p class="text-medium-cn mb-3">年产 <span class="text-super-large !text-4xl md:!text-5xl">10万</span> 片金刚石磨盘、<span class="text-super-large !text-4xl md:!text-5xl">2万</span> 支金刚石薄壁水钻</p>
@@ -232,9 +192,9 @@
                  </div>
             </motion.section>
 
-            <!-- Block 7: Environmental Compliance (Row 4) -->
+            <!-- Block 7: Environmental Compliance -->
             <motion.section
-                class="grid-item flex flex-col justify-center items-center text-center" /* Spans 1 col on lg */
+                class="grid-item flex flex-col justify-center items-center text-center"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}>
                 <i class="fas fa-leaf text-4xl highlight-text mb-3"></i>
                 <h3 class="text-medium-cn">注重环保合规</h3>
@@ -242,7 +202,7 @@
                 <span class="text-label-en mt-1">Focus on Environmental Compliance</span>
             </motion.section>
 
-            <!-- Block 8: Trademark (Row 5) -->
+            <!-- Block 8: Trademark -->
             <motion.section
                 class="grid-item lg:col-span-2"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
@@ -260,7 +220,7 @@
                  </div>
             </motion.section>
 
-            <!-- Block 9: Legal & Operational (Row 5) -->
+            <!-- Block 9: Legal & Operational -->
              <motion.section
                 class="grid-item lg:col-span-2"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
@@ -277,9 +237,9 @@
                  </div>
             </motion.section>
 
-            <!-- Block 10: Employee Scale (Row 6) -->
+            <!-- Block 10: Employee Scale -->
             <motion.section
-                class="grid-item flex flex-col justify-center items-center text-center" /* Spans 1 col on lg */
+                class="grid-item flex flex-col justify-center items-center text-center"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
                  <i class="fas fa-users text-3xl highlight-text mb-3"></i>
                 <div class="text-super-large !text-6xl">4<span class="text-2xl md:text-3xl">人</span></div>
@@ -287,9 +247,9 @@
                 <p class="text-xs text-gray-500">(2021年数据 | 2021 Data)</p>
             </motion.section>
 
-            <!-- Block 11: Contact (Row 6) -->
+            <!-- Block 11: Contact -->
             <motion.section
-                class="grid-item lg:col-span-3" /* Spans 3 cols on lg */
+                class="grid-item lg:col-span-3"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}>
                  <h2 class="text-large-cn mb-4"><i class="fas fa-address-book highlight-text mr-2"></i>联系方式 <span class="text-label-en">Contact Information</span></h2>
                  <div class="space-y-3">
@@ -329,7 +289,23 @@
 
     <script>
         // Simple script to initialize Framer Motion components (if needed, often automatic with UMD)
+        // In this case, Framer Motion via CDN usually works automatically with motion.div
+        // No complex JS needed for these basic scroll animations.
         console.log("Framer Motion Loaded:", typeof motion !== 'undefined');
+
+        // Example of applying motion dynamically if needed, but declarative is preferred
+        // const motionDivs = document.querySelectorAll('.grid-item'); // Example selector
+        // motionDivs.forEach((div, index) => {
+        //     motion(div, {
+        //         initial: { opacity: 0, y: 50 },
+        //         whileInView: { opacity: 1, y: 0 },
+        //         viewport: { once: true },
+        //         transition: { duration: 0.5, delay: index * 0.05 } // Stagger effect
+        //     });
+        // });
+        // Note: The above JS example shows how you *could* use the JS API,
+        // but using <motion.div> attributes directly in HTML is the standard and easier way with the UMD build.
+        // The HTML above already uses the declarative <motion.div> approach.
     </script>
 </body>
 </html>
